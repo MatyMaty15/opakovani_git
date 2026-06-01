@@ -38,6 +38,14 @@ button.addEventListener('click', function() {
     setTimeout(() => {
         messageBox.style.opacity = '1';
     }, 100);
+    
+    // Vibrace zpětná vazba (pokud je dostupná)
+    if (navigator.vibrate) {
+        navigator.vibrate(50);
+    }
+    
+    // Log do konzole
+    console.log(`🖱️ Kliknutí č.${clickCount}`);
 });
 
 // Nastavení počáteční zprávy
@@ -63,6 +71,8 @@ themeToggle.addEventListener('click', function() {
     
     // Změna ikony
     themeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+    
+    console.log(`🌙 Přepnuto na ${isDarkMode ? 'dark' : 'light'} mode`);
 });
 
 // Smooth scroll
@@ -78,5 +88,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-console.log('🤖 AI Hub - JavaScript je aktivní!');
+// Inicializační zpráva v konzoli
+console.log('%c🤖 AI Hub - JavaScript je aktivní!', 'color: #667eea; font-size: 16px; font-weight: bold;');
 console.log('Počet kliknutí na tlačítko:', clickCount);
+console.log('Zkus kliknout na tlačítko a vidět, co se stane!');
